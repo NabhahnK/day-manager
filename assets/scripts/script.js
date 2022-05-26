@@ -1,6 +1,7 @@
-var schedule = $(".container");
+var schedule = document.querySelector(".container");
 var hour = ["9AM", "10AM", "11AM", "12AM", "1PM", "2PM", "3PM", "4PM", "5PM"];
 var temp = "test";
+console.log(schedule);
 
 function rowMaker() {
     for(var i = 0; i < hour.length; i++) {
@@ -8,6 +9,11 @@ function rowMaker() {
         var time = document.createElement("th");
         var info = document.createElement("th");
         var saveBtn = document.createElement("th");
+
+        row.classList.add("row");
+        time.classList.add("hour");
+        info.classList.add("description");
+        saveBtn.classList.add("saveBtn");
 
         time.innerHTML = hour[i];
         row.appendChild(time);
@@ -17,7 +23,7 @@ function rowMaker() {
 
         row.appendChild(saveBtn);
 
-
+        schedule.appendChild(row);
     }
 }
 
