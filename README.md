@@ -59,3 +59,5 @@ function momentChecker() {
     }
 }
 ```
+
+The second funtion currently colors all the rows to the color that means time is up.
