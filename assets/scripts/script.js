@@ -32,7 +32,8 @@ function rowMaker() {
     }
 }
 
-// colors the hours  based off time
+// colors the hours  based off time 
+// does not work yet//
 function momentChecker() {
     for (var i = 0; i < hour.length; i++) {
         var rowId = $(elIds[i]);
