@@ -5,17 +5,18 @@ let timeSlot = [moment('9am', 'ha'), moment('10am', 'ha'), moment('11am', 'ha'),
 moment('3pm', 'ha'), moment('4pm', 'ha'), moment('5pm', 'ha')];
 let placeHolderText = "Add task";
 
+// When save Btn is clicked, saves info in localstorage
 function saveInfo(event) {
     event.preventDefault();
     let ifBtn = event.target.dataset.id;
     if (!ifBtn) return;
     let btnInfo = document.getElementById(ifBtn);
     let theInfo = btnInfo.value;
-    console.log("Bob");
     
     localStorage.setItem(ifBtn, theInfo);
 }
 
+// Checkes if info is in localstorage and if so, sets it to the saved info
 function setInfo(x) {
     let textArea = document.getElementById(hour[x]);
     if (localStorage.getItem(hour[x])) {
@@ -23,6 +24,7 @@ function setInfo(x) {
     }
 }
 
+// Makes the rows, and calls setInfo function
 function rowMaker() {
     for (let i = 0; i < hour.length; i++) {
         let row = document.createElement("form");
@@ -66,7 +68,8 @@ function rowMaker() {
     }
 }
 
-
+// Calles the rowMaker function
 rowMaker();
 
+// Event listener for the save Btns
 schedule.addEventListener("click", saveInfo);
