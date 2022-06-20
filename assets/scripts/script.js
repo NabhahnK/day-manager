@@ -19,6 +19,13 @@ function saveInfo(event) {
     localStorage.setItem(ifBtn, theInfo);
 }
 
+function setInfo(x) {
+    let textArea = document.getElementById(hour[x]);
+    if (localStorage.getItem(hour[x])) {
+        textArea.innerHTML = localStorage.getItem(hour[x]);
+    }
+}
+
 function rowMaker() {
     for (let i = 0; i < hour.length; i++) {
         let row = document.createElement("form");
@@ -33,6 +40,9 @@ function rowMaker() {
         time.innerHTML = hour[i];
         row.appendChild(time);
 
+        info.innerHTML = temp;
+        input.innerHTML = temp;
+
         if (moment(timeSlot[i]).isAfter()) {
             input.classList.add("description", "col-10", "future");
             input.setAttribute("id", hour[i]);
@@ -41,7 +51,6 @@ function rowMaker() {
             info.classList.add("description", "col-10", "present");
             info.setAttribute("id", hour[i]);
             row.appendChild(info);
-
         } else {
             info.classList.add("description", "col-10", "past");
             info.setAttribute("id", hour[i]);
@@ -53,12 +62,10 @@ function rowMaker() {
         saveBtn.setAttribute("data-id", hour[i]);
         saveBtn.classList.add("saveBtn", "col-1");
 
-        info.innerHTML = temp;
-        input.innerHTML = temp;
-
         row.appendChild(saveBtn);
 
         schedule.appendChild(row);
+        setInfo(i);
     }
 }
 
