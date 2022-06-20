@@ -8,6 +8,17 @@ console.log(schedule);
 
 console.log(moment().format("ha"));
 
+function saveInfo(event) {
+    event.preventDefault();
+    let ifBtn = event.target.dataset.id;
+    if (!ifBtn) return;
+    let btnInfo = document.getElementById(ifBtn);
+    let theInfo = btnInfo.value;
+    console.log("Bob");
+    
+    localStorage.setItem(ifBtn, theInfo);
+}
+
 function rowMaker() {
     for (let i = 0; i < hour.length; i++) {
         let row = document.createElement("form");
@@ -39,7 +50,7 @@ function rowMaker() {
 
         saveBtn.setAttribute("type", "submit");
         saveBtn.setAttribute("value", "submit");
-        saveBtn.setAttribute("data-id", elIds[i]);
+        saveBtn.setAttribute("data-id", hour[i]);
         saveBtn.classList.add("saveBtn", "col-1");
 
         info.innerHTML = temp;
@@ -53,3 +64,5 @@ function rowMaker() {
 
 
 rowMaker();
+
+schedule.addEventListener("click", saveInfo);
