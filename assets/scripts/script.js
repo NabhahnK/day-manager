@@ -3,7 +3,7 @@ let hour = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
 let elIds = ["#9AM", "#10AM", "#11AM", "#12PM", "#1PM", "#2PM", "#3PM", "#4PM", "#5PM"]
 let timeSlot = [moment('9am', 'ha'), moment('10am', 'ha'), moment('11am', 'ha'), moment('12pm', 'ha'), moment('1pm', 'ha'), moment('2pm', 'ha'),
 moment('3pm', 'ha'), moment('4pm', 'ha'), moment('5pm', 'ha')];
-let temp = "test";
+let placeHolderText = "Add task";
 console.log(schedule);
 
 console.log(moment().format("ha"));
@@ -40,8 +40,8 @@ function rowMaker() {
         time.innerHTML = hour[i];
         row.appendChild(time);
 
-        info.innerHTML = temp;
-        input.innerHTML = temp;
+        info.innerHTML = placeHolderText;
+        input.innerHTML = placeHolderText;
 
         if (moment(timeSlot[i]).isAfter()) {
             input.classList.add("description", "col-10", "future");
