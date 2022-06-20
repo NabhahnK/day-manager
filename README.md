@@ -4,8 +4,6 @@
 
 This project was an effort to use just scripting to make a day planeer along side the provided html and css.
 
-This is currently unfinished
-
 I have also deployed it as a [GitHub Page](https://nabhahnk.github.io/day-manager/).
 
 # JavaScript 
@@ -77,5 +75,3 @@ function setInfo(x) {
     }
 }
 ```
-
-The second funtion currently colors all the rows to the color that means time is up.
